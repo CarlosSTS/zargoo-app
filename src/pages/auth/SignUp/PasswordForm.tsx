@@ -16,7 +16,7 @@ import assets from '~/assets';
 import { Button, Input, PasswordValidationIndicator } from '~/components';
 import { colors } from '~/global';
 import { passwordSchema } from './schemas';
-import { PasswordFormData } from './interface/registerDriver';
+import { PasswordFormData } from './interface/registerUser';
 import { useSignUpFormStore } from './zustand/useSignUpFormStore';
 
 const PasswordForm: React.FC = () => {

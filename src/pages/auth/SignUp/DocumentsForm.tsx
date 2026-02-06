@@ -22,7 +22,7 @@ import {
   requestMediaLibraryPermission,
 } from '~/utils';
 import { documentsSchema } from './schemas';
-import { DocumentsFormData } from './interface/registerDriver';
+import { DocumentsFormData } from './interface/registerUser';
 import { useSignUpFormStore } from './zustand/useSignUpFormStore';
 
 const DocumentsForm: React.FC = () => {

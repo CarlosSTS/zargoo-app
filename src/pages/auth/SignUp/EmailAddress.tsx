@@ -18,7 +18,7 @@ import { useSignUpFormStore } from './zustand/useSignUpFormStore';
 
 const EmailAddress: React.FC = () => {
   const navigation = useNavigation();
-  const { setSignUpData } = useSignUpFormStore();
+  const { setSignUpData, signUpData } = useSignUpFormStore();
   const { mutateAsync: sendConfirmationEmail, isPending } =
     useSendConfirmationEmail();
 
@@ -38,10 +38,15 @@ const EmailAddress: React.FC = () => {
   const handleNavigateToValidateCodeEmail = useCallback(
     async (data: { email: string }) => {
       setSignUpData({ email: data.email });
-      // await sendConfirmationEmail({ payload: { email: data.email } });
+      await sendConfirmationEmail({
+        payload: {
+          email: data.email,
+          accessType: signUpData.accessType!,
+        },
+      });
       navigation.navigate('ValidateCodeEmail');
     },
-    [sendConfirmationEmail, setSignUpData, navigation],
+    [sendConfirmationEmail, setSignUpData, navigation, signUpData],
   );
 
   return (

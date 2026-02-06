@@ -18,7 +18,7 @@ import { nameSchema } from './schemas';
 import statesAndCities from './estados-cidades2.json';
 import type { SelectRef } from '~/components/Select';
 import { useSignUpFormStore } from './zustand/useSignUpFormStore';
-import { NameFormData } from './interface/registerDriver';
+import { NameFormData } from './interface/registerUser';
 
 const states = Object.entries(statesAndCities.states)
   .map(([key, value]) => ({
