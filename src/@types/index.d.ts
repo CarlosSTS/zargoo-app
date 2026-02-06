@@ -17,6 +17,14 @@ export type AuthStackParamList = {
     accessToken: string;
     refreshToken: string;
   };
+  //SignUp
+  EmailAddress: undefined;
+  ValidateCodeEmail: undefined;
+  ConfirmEmailMessage: undefined;
+  DocumentsForm: undefined;
+  NameForm: undefined;
+  PasswordForm: undefined;
+  ConfirmSignUpMessage: undefined;
 };
 
 declare global {

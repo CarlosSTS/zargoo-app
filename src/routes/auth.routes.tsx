@@ -6,18 +6,16 @@ import {
   SignIn,
   UserAccessTypeSelect,
   Forbidden,
+  //SignUp
+  EmailAddress,
+  ValidateCodeEmail,
+  ConfirmEmailMessage,
+  DocumentsForm,
+  NameForm,
+  PasswordForm,
+  ConfirmSignUpMessage,
 } from '../pages/auth';
 import { AuthStackParamList } from '~/@types';
-// import {
-//   TravelOrDrive,
-//   EmailAddress,
-//   ValidateCodeEmail,
-//   ConfirmEmailMessage,
-//   DocumentsForm,
-//   NameForm,
-//   PasswordForm,
-//   ConfirmSignUpMessage,
-// } from '../pages/SignUp';
 
 const Stack = createNativeStackNavigator<AuthStackParamList>();
 
@@ -41,8 +39,7 @@ const AuthRoutes: React.FC = () => {
       />
 
       <Stack.Screen name="Forbidden" component={Forbidden} />
-      {/* 
-      <Stack.Screen name="TravelOrDrive" component={TravelOrDrive} />
+
       <Stack.Screen name="EmailAddress" component={EmailAddress} />
       <Stack.Screen name="ValidateCodeEmail" component={ValidateCodeEmail} />
       <Stack.Screen
@@ -55,7 +52,7 @@ const AuthRoutes: React.FC = () => {
       <Stack.Screen
         name="ConfirmSignUpMessage"
         component={ConfirmSignUpMessage}
-      /> */}
+      />
     </Stack.Navigator>
   );
 };
