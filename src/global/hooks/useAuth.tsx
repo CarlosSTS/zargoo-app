@@ -5,14 +5,14 @@ import React, {
   useState,
   ReactNode,
   useCallback,
-} from "react";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import { useLogout, useMe, useRevalidate, useUpdateUser } from "~/store";
+} from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useLogout, useMe, useRevalidate, useUpdateUser } from '~/store';
 
 interface SetUserDataPayload {
   accessToken: string;
   refreshToken: string;
-  user: Omit<User, "expireIn">;
+  user: Omit<User, 'expireIn'>;
 }
 
 interface AuthContextData {
@@ -29,9 +29,9 @@ interface AuthProviderProps {
   children: ReactNode;
 }
 
-const STORAGE_KEY_USER = "@zargoo:user";
-const STORAGE_KEY_TOKEN = "@zargoo:token";
-const STORAGE_KEY_REFRESH_TOKEN = "@zargoo:refresh-token";
+const STORAGE_KEY_USER = '@zargoo:user';
+const STORAGE_KEY_TOKEN = '@zargoo:token';
+const STORAGE_KEY_REFRESH_TOKEN = '@zargoo:refresh-token';
 const TOKEN_EXPIRATION_TIME = 15 * 60 * 1000; // 15 minutos em milissegundos
 
 export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
@@ -177,7 +177,7 @@ export const useAuth = (): AuthContextData => {
   const context = useContext(AuthContext);
 
   if (!context) {
-    throw new Error("useAuth must be used within an AuthProvider");
+    throw new Error('useAuth must be used within an AuthProvider');
   }
 
   return context;

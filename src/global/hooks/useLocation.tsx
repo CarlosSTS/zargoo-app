@@ -6,11 +6,11 @@ import React, {
   useCallback,
   useRef,
   useMemo,
-} from "react";
-import { Region } from "react-native-maps";
-import Toast from "react-native-toast-message";
-import * as Location from "expo-location";
-import { locationPermission } from "../utils";
+} from 'react';
+import { Region } from 'react-native-maps';
+import Toast from 'react-native-toast-message';
+import * as Location from 'expo-location';
+import { locationPermission } from '../utils';
 
 interface LocationData {
   currentLocation: Region;
@@ -102,18 +102,18 @@ export const LocationProvider: React.FC<LocationProviderProps> = ({
 
       const hasServicesEnabled = await Location.hasServicesEnabledAsync();
       if (!hasServicesEnabled) {
-        throw new Error("Serviço de localização desativado");
+        throw new Error('Serviço de localização desativado');
       }
 
       const hasPermission = await locationPermission();
       if (!hasPermission) {
-        throw new Error("Permissão de localização necessária");
+        throw new Error('Permissão de localização necessária');
       }
 
       const location = await Location.getCurrentPositionAsync({
         accuracy: Location.Accuracy.High,
       });
-      console.log("Localização obtida:", location);
+      console.log('Localização obtida:', location);
 
       const { city, state } = await getAddressFromCoordinates(
         location.coords.latitude,
@@ -135,9 +135,9 @@ export const LocationProvider: React.FC<LocationProviderProps> = ({
       });
     } catch (error) {
       Toast.show({
-        type: "error",
-        text1: (error as Error).message || "Erro ao obter localização",
-        text2: "Verifique se o serviço e as permissões de localização.",
+        type: 'error',
+        text1: (error as Error).message || 'Erro ao obter localização',
+        text2: 'Verifique se o serviço e as permissões de localização.',
       });
       throw error;
     } finally {
@@ -149,15 +149,15 @@ export const LocationProvider: React.FC<LocationProviderProps> = ({
     try {
       const hasServicesEnabled = await Location.hasServicesEnabledAsync();
       if (!hasServicesEnabled) {
-        throw new Error("Serviço de localização desativado");
+        throw new Error('Serviço de localização desativado');
       }
 
       const hasPermission = await locationPermission();
       if (!hasPermission) {
-        throw new Error("Permissão de localização necessária");
+        throw new Error('Permissão de localização necessária');
       }
 
-      console.log("Iniciando monitoramento de localização...");
+      console.log('Iniciando monitoramento de localização...');
       // Remove subscription anterior se existir
       if (locationSubscriptionRef.current) {
         locationSubscriptionRef.current.remove();
@@ -189,7 +189,7 @@ export const LocationProvider: React.FC<LocationProviderProps> = ({
 
       locationSubscriptionRef.current = subscription;
     } catch (error) {
-      console.error("Erro ao iniciar monitoramento de localização:", error);
+      console.error('Erro ao iniciar monitoramento de localização:', error);
       throw error;
     }
   }, [locationData.city, locationData.state]);
@@ -199,7 +199,7 @@ export const LocationProvider: React.FC<LocationProviderProps> = ({
       locationSubscriptionRef.current.remove();
       locationSubscriptionRef.current = null;
     }
-    console.log("Parou de monitorar a localização");
+    console.log('Parou de monitorar a localização');
   }, []);
 
   const hasLocation = useMemo(() => {
@@ -232,7 +232,7 @@ export const useLocation = (): LocationContextData => {
   const context = useContext(LocationContext);
 
   if (!context) {
-    throw new Error("useLocation deve ser usado dentro de um LocationProvider");
+    throw new Error('useLocation deve ser usado dentro de um LocationProvider');
   }
 
   return context;

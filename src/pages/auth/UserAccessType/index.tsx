@@ -1,0 +1,128 @@
+import React, { useCallback } from 'react';
+import {
+  Text,
+  KeyboardAvoidingView,
+  Platform,
+  ScrollView,
+  View,
+  Image,
+  TouchableOpacity,
+} from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { LinearGradient } from 'expo-linear-gradient';
+import assets from '~/assets';
+import { colors } from '~/global';
+import styles from './styles';
+
+const SelectUserType: React.FC = () => {
+  const navigation =
+    useNavigation<NativeStackNavigationProp<AuthStackParamList>>();
+
+  const navigateToSignUp = useCallback(() => {
+    navigation.navigate('TravelOrDrive');
+  }, [navigation]);
+
+  const handleSelectDriver = useCallback(() => {
+    navigation.navigate('SignIn', { role: 'DRIVER' });
+  }, [navigation]);
+
+  const handleSelectClient = useCallback(() => {
+    navigation.navigate('SignIn', { role: 'CLIENT' });
+  }, [navigation]);
+
+  return (
+    <KeyboardAvoidingView
+      style={styles.flex}
+      behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+      enabled
+    >
+      <ScrollView
+        contentContainerStyle={styles.scrollContent}
+        showsVerticalScrollIndicator={false}
+        keyboardShouldPersistTaps="handled"
+      >
+        <View style={styles.container}>
+          <View style={styles.content}>
+            <View>
+              <Text style={styles.welcomeText}>Como você deseja acessar?</Text>
+              <Text style={styles.subtitleText}>
+                Escolha o tipo de acesso para continuar
+              </Text>
+            </View>
+
+            <View style={styles.buttonsContainer}>
+              <LinearGradient
+                colors={colors.gradienteUserTypeButtonDriver.colors}
+                start={colors.gradienteUserTypeButtonDriver.start}
+                end={colors.gradienteUserTypeButtonDriver.end}
+                style={styles.gradientButton}
+              >
+                <TouchableOpacity
+                  activeOpacity={0.9}
+                  style={styles.userTypeButton}
+                  onPress={handleSelectDriver}
+                >
+                  <View style={styles.buttonTextContainer}>
+                    <Text style={styles.buttonTitle}>
+                      Entrar como Motorista
+                    </Text>
+                    <Text style={styles.buttonDescription}>
+                      Aceite corridas, gerencie seus{'\n'}ganhos e acompanhe
+                      rotas.
+                    </Text>
+                  </View>
+                  <View style={styles.arrowContainer}>
+                    <Image
+                      style={styles.arrow}
+                      source={assets.icons.chevron_right}
+                    />
+                  </View>
+                </TouchableOpacity>
+              </LinearGradient>
+
+              <LinearGradient
+                colors={colors.gradienteUserTypeButtonClient.colors}
+                start={colors.gradienteUserTypeButtonClient.start}
+                end={colors.gradienteUserTypeButtonClient.end}
+                style={styles.gradientButton}
+              >
+                <TouchableOpacity
+                  activeOpacity={0.9}
+                  style={styles.userTypeButton}
+                  onPress={handleSelectClient}
+                >
+                  <View style={styles.buttonTextContainer}>
+                    <Text style={styles.buttonTitle}>Entrar como Cliente</Text>
+                    <Text style={styles.buttonDescription}>
+                      Viaje com praticidade e segurança.
+                    </Text>
+                  </View>
+                  <View style={styles.arrowContainer}>
+                    <Image
+                      style={styles.arrow}
+                      source={assets.icons.chevron_right}
+                    />
+                  </View>
+                </TouchableOpacity>
+              </LinearGradient>
+            </View>
+
+            <View style={styles.divider} />
+            <Text style={styles.registerText}>
+              Não tem conta?{' '}
+              <Text
+                style={styles.registerButtonText}
+                onPress={navigateToSignUp}
+              >
+                Cadastre-se
+              </Text>
+            </Text>
+          </View>
+        </View>
+      </ScrollView>
+    </KeyboardAvoidingView>
+  );
+};
+
+export default SelectUserType;
