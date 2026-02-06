@@ -1,4 +1,4 @@
-import TravelOrDrive from './TravelOrDrive';
+import UserAccessTypeSelect from './UserAccessTypeSelect';
 import EmailAddress from './EmailAddress';
 import ValidateCodeEmail from './ValidateCodeEmail';
 import ConfirmEmailMessage from './ConfirmEmailMessage';
@@ -8,7 +8,7 @@ import ConfirmSignUpMessage from './ConfirmSignUpMessage';
 import PasswordForm from './PasswordForm';
 
 export {
-  TravelOrDrive,
+  UserAccessTypeSelect,
   EmailAddress,
   ValidateCodeEmail,
   ConfirmEmailMessage,

@@ -13,7 +13,7 @@ import styles from './styles';
 import assets from '~/assets';
 import { Button, Input } from '~/components';
 import { emailAddressSchema } from './schemas';
-import { useSendConfirmationEmail } from './store/driver/sendConfirmationEmail';
+import { useSendConfirmationEmail } from './store/sendConfirmationEmail';
 import { useSignUpFormStore } from './zustand/useSignUpFormStore';
 
 const EmailAddress: React.FC = () => {

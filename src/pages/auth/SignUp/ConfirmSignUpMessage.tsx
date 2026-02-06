@@ -8,7 +8,7 @@ import { useAuth } from '~/global/hooks';
 import { useMe } from '~/global/store/auth';
 import { useSignIn } from '../SignIn/store/useSignIn';
 import { useSignUpFormStore } from './zustand/useSignUpFormStore';
-import { useRegisterDriver } from './store/driver/useRegisterDriver';
+import { useRegisterDriver } from './store/useRegisterDriver';
 
 const ConfirmSignUpMessage: React.FC = () => {
   const { mutateAsync: signInMutation, isPending } = useSignIn();

@@ -4,7 +4,7 @@ import { api, interceptorsApiErros } from '~/services';
 import {
   RegisterDriverPayload,
   RegisterDriverResponse,
-} from '../../interface/registerDriver';
+} from '../interface/registerDriver';
 
 const registerDriver = async (
   payload: RegisterDriverPayload,
