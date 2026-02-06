@@ -2,15 +2,13 @@ import React from 'react';
 import { View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { LoadingGradient } from '../components';
-// import { useAuth } from '../hooks';
-// import AppRoutes from './app.routes';
+import { useAuth } from '../global/hooks';
+import AppRoutes from './app.routes';
 import AuthRoutes from './auth.routes';
 import styles from './styles';
 
 const Routes: React.FC = () => {
-  // const { user, isLoading } = useAuth();
-  const user = null;
-  const isLoading = false;
+  const { user, isLoading } = useAuth();
 
   if (isLoading) {
     return (
@@ -21,7 +19,7 @@ const Routes: React.FC = () => {
   }
   return (
     <NavigationContainer>
-      {user ? <AuthRoutes /> : <AuthRoutes />}
+      {user ? <AppRoutes /> : <AuthRoutes />}
     </NavigationContainer>
   );
 };
