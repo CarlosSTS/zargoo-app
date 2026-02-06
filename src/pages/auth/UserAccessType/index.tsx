@@ -13,24 +13,21 @@ import { RectButton } from 'react-native-gesture-handler';
 import assets from '~/assets';
 import { colors, defaultValues } from '~/global';
 import styles from './styles';
-import { useSignUpStore } from '../SignUp/zustand';
 
 const UserAccessType: React.FC = () => {
   const navigation = useNavigation();
-  const { setData } = useSignUpStore();
+
   const navigateToUserAccessTypeSelect = useCallback(() => {
-    navigation.navigate('UserAccessTypeSelect' as never);
+    navigation.navigate('UserAccessTypeSelect');
   }, [navigation]);
 
   const handleSelectDriver = useCallback(() => {
-    setData({ userType: defaultValues.USER_TYPE.DRIVER });
-    navigation.navigate('SignIn' as never);
-  }, [navigation, setData]);
+    navigation.navigate('SignIn', { role: defaultValues.USER_TYPE.DRIVER });
+  }, [navigation]);
 
   const handleSelectClient = useCallback(() => {
-    setData({ userType: defaultValues.USER_TYPE.CLIENT });
-    navigation.navigate('SignIn' as never);
-  }, [navigation, setData]);
+    navigation.navigate('SignIn', { role: defaultValues.USER_TYPE.CLIENT });
+  }, [navigation]);
 
   return (
     <KeyboardAvoidingView

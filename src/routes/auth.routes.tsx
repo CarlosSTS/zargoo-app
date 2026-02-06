@@ -2,6 +2,7 @@ import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { colors } from '../global/styles';
 import { UserAccessType, UserAccessTypeSelect, SignIn } from '../pages/auth';
+import { AuthStackParamList } from '~/@types';
 // import {
 //   TravelOrDrive,
 //   EmailAddress,
@@ -13,7 +14,7 @@ import { UserAccessType, UserAccessTypeSelect, SignIn } from '../pages/auth';
 //   ConfirmSignUpMessage,
 // } from '../pages/SignUp';
 
-const Stack = createNativeStackNavigator();
+const Stack = createNativeStackNavigator<AuthStackParamList>();
 
 const AuthRoutes: React.FC = () => {
   return (
