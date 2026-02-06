@@ -1,3 +1,6 @@
 import UserAccessType from './UserAccessType';
+import UserAccessTypeSelect from './UserAccessTypeSelect';
 
-export { UserAccessType };
+import SignIn from './SignIn';
+
+export { UserAccessType, UserAccessTypeSelect, SignIn };

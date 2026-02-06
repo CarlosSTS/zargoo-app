@@ -11,23 +11,26 @@ import { useNavigation } from '@react-navigation/native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { RectButton } from 'react-native-gesture-handler';
 import assets from '~/assets';
-import { colors } from '~/global/styles';
+import { colors, defaultValues } from '~/global';
 import styles from './styles';
+import { useSignUpStore } from '../SignUp/zustand';
 
 const UserAccessType: React.FC = () => {
   const navigation = useNavigation();
-
-  const navigateToSignUp = useCallback(() => {
-    navigation.navigate('TravelOrDrive');
+  const { setData } = useSignUpStore();
+  const navigateToUserAccessTypeSelect = useCallback(() => {
+    navigation.navigate('UserAccessTypeSelect' as never);
   }, [navigation]);
 
   const handleSelectDriver = useCallback(() => {
-    navigation.navigate('SignIn', { role: 'DRIVER' });
-  }, [navigation]);
+    setData({ userType: defaultValues.USER_TYPE.DRIVER });
+    navigation.navigate('SignIn' as never);
+  }, [navigation, setData]);
 
   const handleSelectClient = useCallback(() => {
-    navigation.navigate('SignIn', { role: 'CLIENT' });
-  }, [navigation]);
+    setData({ userType: defaultValues.USER_TYPE.CLIENT });
+    navigation.navigate('SignIn' as never);
+  }, [navigation, setData]);
 
   return (
     <KeyboardAvoidingView
@@ -111,7 +114,7 @@ const UserAccessType: React.FC = () => {
               Não tem conta?{' '}
               <Text
                 style={styles.registerButtonText}
-                onPress={navigateToSignUp}
+                onPress={navigateToUserAccessTypeSelect}
               >
                 Cadastre-se
               </Text>

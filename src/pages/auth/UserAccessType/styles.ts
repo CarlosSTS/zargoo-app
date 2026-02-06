@@ -82,7 +82,6 @@ const styles = StyleSheet.create({
     color: colors.text,
     fontFamily: fonts.Inter_700Bold,
     fontSize: 22,
-    marginBottom: 8,
     textAlign: 'center',
   },
 });
