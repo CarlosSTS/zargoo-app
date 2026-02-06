@@ -15,6 +15,7 @@ import * as SplashScreen from 'expo-splash-screen';
 import { colors } from './global/styles';
 import { AuthProvider } from './global/hooks';
 import Routes from './routes';
+import { toastConfig } from './global';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -44,7 +45,7 @@ const App: React.FC = () => {
             translucent={false}
           />
           <Routes />
-          <Toast />
+          <Toast config={toastConfig} />
         </GestureHandlerRootView>
         {/* </LocationProvider> */}
       </AuthProvider>

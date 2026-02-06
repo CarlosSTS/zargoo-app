@@ -71,5 +71,20 @@ const colors = {
       y: 0,
     },
   },
+  // Toast colors
+  toast: {
+    error: {
+      background: '#FEF2F2',
+      text: '#DC2626',
+    },
+    success: {
+      background: '#DCFCE7',
+      text: '#166534',
+    },
+    info: {
+      background: '#CBEAf8',
+      text: '#0785f2',
+    },
+  },
 };
 export default colors;
