@@ -8,7 +8,7 @@ import { useAuth } from '~/global/hooks';
 import { useMe } from '~/global/store/auth';
 import { useSignIn } from '../SignIn/store/useSignIn';
 import { useSignUpFormStore } from './zustand/useSignUpFormStore';
-import { useRegisterDriver } from './store/useRegisterDriver';
+import { useRegisterUser } from './store/useRegisterUser';
 
 const ConfirmSignUpMessage: React.FC = () => {
   const { mutateAsync: signInMutation, isPending } = useSignIn();
@@ -16,8 +16,8 @@ const ConfirmSignUpMessage: React.FC = () => {
   const { mutateAsync: meMutation, isPending: isMePending } = useMe();
 
   const { signUpData } = useSignUpFormStore();
-  const { mutateAsync: registerDriverMutation, isPending: isRegistering } =
-    useRegisterDriver();
+  const { mutateAsync: registerUserMutation, isPending: isRegistering } =
+    useRegisterUser();
 
   const completeSignUp = useCallback(async () => {
     const {
@@ -144,9 +144,10 @@ const ConfirmSignUpMessage: React.FC = () => {
       cnh_img_url: cnh_img_url,
       city: city,
       state: state,
+      accessType: accessType,
     };
 
-    await registerDriverMutation({
+    await registerUserMutation({
       payload: registrationData,
     });
 
@@ -166,7 +167,7 @@ const ConfirmSignUpMessage: React.FC = () => {
     });
   }, [
     signUpData,
-    registerDriverMutation,
+    registerUserMutation,
     signInMutation,
     meMutation,
     setUserData,

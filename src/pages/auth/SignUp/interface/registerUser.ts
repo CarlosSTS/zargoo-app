@@ -20,14 +20,14 @@ export interface PasswordFormData {
   acceptTerms: boolean;
 }
 
-export interface RegisterDriverFormData
-  extends NameFormData, DocumentsFormData {
+export interface RegisterUserFormData extends NameFormData, DocumentsFormData {
   accessType: UserScope;
   email: string;
   password: string;
 }
 
-export interface RegisterDriverPayload {
+export interface RegisterUserPayload {
+  accessType: UserScope;
   email: string;
   cpf: string;
   rg: string;
@@ -40,6 +40,6 @@ export interface RegisterDriverPayload {
   state: string;
 }
 
-export interface RegisterDriverResponse {
+export interface RegisterUserResponse {
   data: {};
 }

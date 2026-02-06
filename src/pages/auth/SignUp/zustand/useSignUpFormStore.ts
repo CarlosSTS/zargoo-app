@@ -1,19 +1,19 @@
 import { create } from 'zustand';
-import { RegisterDriverFormData } from '../interface/registerDriver';
+import { RegisterUserFormData } from '../interface/registerUser';
 
-const initialState: Partial<RegisterDriverFormData> = {};
+const initialState: Partial<RegisterUserFormData> = {};
 
 type SignUpFormStore = {
-  signUpData: Partial<RegisterDriverFormData>;
+  signUpData: Partial<RegisterUserFormData>;
   // eslint-disable-next-line no-unused-vars
-  setSignUpData: (data: Partial<RegisterDriverFormData>) => void;
+  setSignUpData: (data: Partial<RegisterUserFormData>) => void;
   clearSignUpData: () => void;
 };
 
 export const useSignUpFormStore = create<SignUpFormStore>((set) => ({
   signUpData: initialState,
 
-  setSignUpData: (data: Partial<RegisterDriverFormData>) => {
+  setSignUpData: (data: Partial<RegisterUserFormData>) => {
     set((state) => ({
       signUpData: {
         ...state.signUpData,

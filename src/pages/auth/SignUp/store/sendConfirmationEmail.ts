@@ -1,9 +1,11 @@
 import Toast from 'react-native-toast-message';
 import { useMutation } from '@tanstack/react-query';
 import { api, interceptorsApiErros } from '~/services';
+import { UserScope } from '~/@types';
 
 interface SendConfirmationEmailPayload {
   email: string;
+  accessType: UserScope;
 }
 
 interface SendConfirmationEmailResponse {
@@ -15,9 +17,11 @@ interface SendConfirmationEmailResponse {
 const sendConfirmationEmail = async (
   payload: SendConfirmationEmailPayload,
 ): Promise<SendConfirmationEmailResponse> => {
+  const finalPath = payload.accessType === 'DRIVER' ? '/driver' : '/cliente';
+
   try {
     const response = await api.post<SendConfirmationEmailResponse>(
-      '/driver/send-confirmation-email',
+      `${finalPath}/send-confirmation-email`,
       payload,
     );
     return response.data;
