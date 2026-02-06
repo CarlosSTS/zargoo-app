@@ -7,7 +7,8 @@ import React, {
   useCallback,
 } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { useLogout, useMe, useRevalidate, useUpdateUser } from '~/store';
+import { useLogout, useMe, useRevalidate, useUpdateUser } from '../store/auth';
+import { User } from '~/@types/User';
 
 interface SetUserDataPayload {
   accessToken: string;

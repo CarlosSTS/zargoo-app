@@ -1,14 +1,22 @@
 declare module '*.png';
 
 import { defaultValues } from '~/global';
+import { User } from './User';
 
-type UserType =
+export type UserScope =
   (typeof defaultValues.USER_TYPE)[keyof typeof defaultValues.USER_TYPE];
 
 export type AuthStackParamList = {
   UserAccessType: undefined;
   UserAccessTypeSelect: undefined;
-  SignIn: { role: UserType };
+  SignIn: { accessType: UserScope };
+  Forbidden: {
+    email: string;
+    expectedRole: UserScope;
+    meData: Omit<User, 'expireIn'>;
+    accessToken: string;
+    refreshToken: string;
+  };
 };
 
 declare global {

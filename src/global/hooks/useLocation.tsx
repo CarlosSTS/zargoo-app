@@ -10,7 +10,7 @@ import React, {
 import { Region } from 'react-native-maps';
 import Toast from 'react-native-toast-message';
 import * as Location from 'expo-location';
-import { locationPermission } from '../utils';
+import { locationPermission } from '~/utils';
 
 interface LocationData {
   currentLocation: Region;
@@ -87,6 +87,7 @@ export const LocationProvider: React.FC<LocationProviderProps> = ({
           state: null,
         };
       } catch (error) {
+        console.error('Erro ao obter endereço:', JSON.stringify(error));
         return {
           city: null,
           state: null,

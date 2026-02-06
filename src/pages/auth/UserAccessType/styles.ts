@@ -40,9 +40,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingHorizontal: 24,
   },
-  flex: {
-    flex: 1,
-  },
+
   gradientButton: {
     borderRadius: 5,
   },

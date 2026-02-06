@@ -13,7 +13,7 @@ import {
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import * as SplashScreen from 'expo-splash-screen';
 import { colors } from './global/styles';
-// import { AuthProvider, LocationProvider } from './global/hooks';
+import { AuthProvider } from './global/hooks';
 import Routes from './routes';
 
 SplashScreen.preventAutoHideAsync();
@@ -35,19 +35,19 @@ const App: React.FC = () => {
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* <AuthProvider> */}
-      {/* <LocationProvider> */}
-      <GestureHandlerRootView style={{ flex: 1 }}>
-        <StatusBar
-          barStyle="dark-content"
-          backgroundColor={colors.transparent}
-          translucent={false}
-        />
-        <Routes />
-        <Toast />
-      </GestureHandlerRootView>
-      {/* </LocationProvider> */}
-      {/* </AuthProvider> */}
+      <AuthProvider>
+        {/* <LocationProvider> */}
+        <GestureHandlerRootView style={{ flex: 1 }}>
+          <StatusBar
+            barStyle="dark-content"
+            backgroundColor={colors.transparent}
+            translucent={false}
+          />
+          <Routes />
+          <Toast />
+        </GestureHandlerRootView>
+        {/* </LocationProvider> */}
+      </AuthProvider>
     </QueryClientProvider>
   );
 };
