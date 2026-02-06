@@ -6,18 +6,16 @@ import {
   ScrollView,
   View,
   Image,
-  TouchableOpacity,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { LinearGradient } from 'expo-linear-gradient';
+import { RectButton } from 'react-native-gesture-handler';
 import assets from '~/assets';
-import { colors } from '~/global';
+import { colors } from '~/global/styles';
 import styles from './styles';
 
-const SelectUserType: React.FC = () => {
-  const navigation =
-    useNavigation<NativeStackNavigationProp<AuthStackParamList>>();
+const UserAccessType: React.FC = () => {
+  const navigation = useNavigation();
 
   const navigateToSignUp = useCallback(() => {
     navigation.navigate('TravelOrDrive');
@@ -58,7 +56,7 @@ const SelectUserType: React.FC = () => {
                 end={colors.gradienteUserTypeButtonDriver.end}
                 style={styles.gradientButton}
               >
-                <TouchableOpacity
+                <RectButton
                   activeOpacity={0.9}
                   style={styles.userTypeButton}
                   onPress={handleSelectDriver}
@@ -78,7 +76,7 @@ const SelectUserType: React.FC = () => {
                       source={assets.icons.chevron_right}
                     />
                   </View>
-                </TouchableOpacity>
+                </RectButton>
               </LinearGradient>
 
               <LinearGradient
@@ -87,7 +85,7 @@ const SelectUserType: React.FC = () => {
                 end={colors.gradienteUserTypeButtonClient.end}
                 style={styles.gradientButton}
               >
-                <TouchableOpacity
+                <RectButton
                   activeOpacity={0.9}
                   style={styles.userTypeButton}
                   onPress={handleSelectClient}
@@ -104,7 +102,7 @@ const SelectUserType: React.FC = () => {
                       source={assets.icons.chevron_right}
                     />
                   </View>
-                </TouchableOpacity>
+                </RectButton>
               </LinearGradient>
             </View>
 
@@ -125,4 +123,4 @@ const SelectUserType: React.FC = () => {
   );
 };
 
-export default SelectUserType;
+export default UserAccessType;

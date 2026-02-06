@@ -35,16 +35,7 @@ export default [
         clearTimeout: 'readonly',
         setInterval: 'readonly',
         clearInterval: 'readonly',
-        FormData: 'readonly',
         __DEV__: 'readonly',
-        // TYPINGS GLOBAIS DO PROJETO
-        ProfileAppBottomTabsParamsList: 'readonly',
-        DocumentsFormData: 'readonly',
-        SignUpFormData: 'readonly',
-        AuthStackParamList: 'readonly',
-        UserRole: 'readonly',
-        User: 'readonly',
-        HomeAppBottomTabsParamsList: 'readonly',
       },
     },
     plugins: {

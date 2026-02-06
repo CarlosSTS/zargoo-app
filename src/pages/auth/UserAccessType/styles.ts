@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { fonts, colors } from '~/global';
+import { fonts, colors } from '~/global/styles';
 
 const styles = StyleSheet.create({
   arrowContainer: {

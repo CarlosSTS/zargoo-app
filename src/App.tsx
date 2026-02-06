@@ -14,7 +14,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import * as SplashScreen from 'expo-splash-screen';
 import { colors } from './global/styles';
 // import { AuthProvider, LocationProvider } from './global/hooks';
-// import Routes from "./routes";
+import Routes from './routes';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -43,7 +43,7 @@ const App: React.FC = () => {
           backgroundColor={colors.transparent}
           translucent={false}
         />
-        {/* <Routes /> */}
+        <Routes />
         <Toast />
       </GestureHandlerRootView>
       {/* </LocationProvider> */}
