@@ -1,7 +1,12 @@
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { colors } from '../global/styles';
-import { UserAccessType, UserAccessTypeSelect, SignIn } from '../pages/auth';
+import {
+  UserAccessType,
+  SignIn,
+  UserAccessTypeSelect,
+  Forbidden,
+} from '../pages/auth';
 import { AuthStackParamList } from '~/@types';
 // import {
 //   TravelOrDrive,
@@ -28,13 +33,14 @@ const AuthRoutes: React.FC = () => {
       }}
     >
       <Stack.Screen name="UserAccessType" component={UserAccessType} />
+      <Stack.Screen name="SignIn" component={SignIn} />
+
       <Stack.Screen
         name="UserAccessTypeSelect"
         component={UserAccessTypeSelect}
       />
 
-      <Stack.Screen name="SignIn" component={SignIn} />
-      {/* <Stack.Screen name="Forbidden" component={Forbidden} /> */}
+      <Stack.Screen name="Forbidden" component={Forbidden} />
       {/* 
       <Stack.Screen name="TravelOrDrive" component={TravelOrDrive} />
       <Stack.Screen name="EmailAddress" component={EmailAddress} />

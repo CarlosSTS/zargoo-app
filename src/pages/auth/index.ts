@@ -1,6 +1,9 @@
 import UserAccessType from './UserAccessType';
-import UserAccessTypeSelect from './UserAccessTypeSelect';
 
 import SignIn from './SignIn';
 
-export { UserAccessType, UserAccessTypeSelect, SignIn };
+import UserAccessTypeSelect from './SignUp/UserAccessTypeSelect';
+
+import Forbidden from './Forbidden';
+
+export { UserAccessType, UserAccessTypeSelect, SignIn, Forbidden };

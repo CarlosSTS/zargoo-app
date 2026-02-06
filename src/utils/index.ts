@@ -1,4 +1,4 @@
-import { getStatusConfig } from './categoryStatus';
+// import { getStatusConfig } from './categoryStatus';
 import isValidCoordinate from './coordinates/isValidCoordinate';
 import isWithinRadius from './coordinates/isWithinRadius';
 import getUserScope from './getUserScope';
@@ -24,7 +24,7 @@ export {
   isWithinRadius,
   isObjectCompletelyFilled,
   getUserScope,
-  getStatusConfig,
+  // getStatusConfig,
   birthDateMask,
   cpfMask,
   phoneMask,

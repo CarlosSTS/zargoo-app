@@ -1,4 +1,5 @@
-import { UserScope } from '.';
+import { UserScope } from '~/@types';
+import { Driver } from './Driver';
 
 export interface User {
   id: number;
