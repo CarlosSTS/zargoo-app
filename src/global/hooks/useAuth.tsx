@@ -72,12 +72,12 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
           }
         }
       } catch (error) {
-        // await AsyncStorage.multiRemove([
-        //   STORAGE_KEY_USER,
-        //   STORAGE_KEY_TOKEN,
-        //   STORAGE_KEY_REFRESH_TOKEN,
-        // ]);
-        // setUser(null);
+        await AsyncStorage.multiRemove([
+          STORAGE_KEY_USER,
+          STORAGE_KEY_TOKEN,
+          STORAGE_KEY_REFRESH_TOKEN,
+        ]);
+        setUser(null);
       }
     },
     [revalidate, me],
