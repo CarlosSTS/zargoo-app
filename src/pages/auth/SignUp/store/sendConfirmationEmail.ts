@@ -22,7 +22,7 @@ const sendConfirmationEmail = async (
   try {
     const response = await api.post<SendConfirmationEmailResponse>(
       `${finalPath}/send-confirmation-email`,
-      payload,
+      { email: payload.email },
     );
     return response.data;
   } catch (error) {
